@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        globally_quoted_identifiers: 'true'
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+  datasource:
+    password: secret
+    username: postgres
+    url: jdbc:postgresql://127.0.0.1:5432/student_app
