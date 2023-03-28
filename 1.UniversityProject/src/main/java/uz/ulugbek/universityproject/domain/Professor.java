@@ -1,9 +1,7 @@
 package uz.ulugbek.universityproject.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -28,14 +26,52 @@ public class Professor {
     @Embedded
     private Address address;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(
+                    name = "email",
+                    column = @Column(name = "personal_email")
+            ),
+            @AttributeOverride(
+                    name = "phone",
+                    column = @Column(name = "personal_phone")
+            ),
+    })
+    private Contact personalContact;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(
+                    name = "email",
+                    column = @Column(name = "business_email")
+            ),
+            @AttributeOverride(
+                    name = "phone",
+                    column = @Column(name = "business_phone")
+            ),
+    })
+    private Contact businessContact;
+
     @Embeddable
-    @Data
+    @Getter
+    @Setter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Address {
         private String street;
         private String city;
         private String postalCode;
+
+    }
+
+    @Embeddable
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Contact {
+        private String email;
+        private String phone;
 
     }
 

@@ -41,6 +41,9 @@ class UniversityApplicationTests {
 
         pr.setAddress(new Professor.Address("M.Joe 23", "Lasvegas", "23020"));
 
+        pr.setPersonalContact(new Professor.Contact("my-test@gmail.com", "+1232323232"));
+        pr.setBusinessContact(new Professor.Contact("bs-test@gmail.com", "+1434323232"));
+
         professorService.save(pr);
     }
 
