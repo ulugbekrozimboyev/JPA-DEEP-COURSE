@@ -39,6 +39,8 @@ class UniversityApplicationTests {
         pr.setFirstName("test");
         pr.setLastName("test");
 
+        pr.setAddress(new Professor.Address("M.Joe 23", "Lasvegas", "23020"));
+
         professorService.save(pr);
     }
 

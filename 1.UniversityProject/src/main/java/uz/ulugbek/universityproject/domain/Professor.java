@@ -1,7 +1,9 @@
 package uz.ulugbek.universityproject.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -22,4 +24,19 @@ public class Professor {
 
     @OneToMany(mappedBy = "professor", fetch = FetchType.EAGER)
     private List<Course> courses;
+
+    @Embedded
+    private Address address;
+
+    @Embeddable
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Address {
+        private String street;
+        private String city;
+        private String postalCode;
+
+    }
+
 }
