@@ -12,8 +12,9 @@ import java.time.LocalDateTime;
 /*
 * Example for ID class
 *   Rules:
-*       1. all primary key attributes annotated with @Id
-*       2. IdClass as "shadow" of primary key attributes. It means the class must have same name and type
+*       1. Both class must implement Serializable interface
+*       2. All primary key attributes annotated with @Id
+*       3. IdClass as "shadow" of primary key attributes. It means the class must have same name and type
 *
 * */
 
@@ -21,7 +22,7 @@ import java.time.LocalDateTime;
 @Table(name = "reviews")
 @Getter
 @Setter
-@IdClass(Review.ReviewId .class)
+@IdClass(Review.ReviewId.class)
 @EqualsAndHashCode
 public class Review implements Serializable {
 
