@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * */
 
 @Entity
-@Table(name = "orders")
+@Table(name = "purchases")
 @Getter
 @Setter
 @EqualsAndHashCode
